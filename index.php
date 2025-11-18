@@ -31,12 +31,24 @@
             }
             break;
         }
+        case 'praticiens':
+            {
+                if (!empty($_SESSION['login'])) {
+                    include('controleur/c_praticien.php');
+                } else {
+                    include('vues/v_accesInterdit.php');
+                }
+                break;
+            }
     
         case 'connexion' :
         {   
                         include("controleur/c_connexion.php");
             break; 
         }
+        case 'rapportVisite':
+            include("controleur/c_rapportVisite.php");
+            break;
         default :
         {   
            

@@ -38,6 +38,27 @@
                         <li class="nav-item">
                             <a class="nav-link btn-outline-info rounded-pill px-3 fw-bold" href="index.php?uc=connexion&action=deconnexion" onclick="return confirm('Voulez-vous vraiment vous déconnecter ?');">Déconnexion</a>
                         </li>
+                        <?php
+
+$estVisiteur = false;
+if (isset($_SESSION['habilitation'])) {
+    
+    $hab = $_SESSION['habilitation'];
+    $estVisiteur = ($hab === 1) 
+        || (is_string($hab) && mb_strtolower($hab, 'UTF-8') === 'visiteur');
+}
+
+if ($estVisiteur) {
+   
+    $active = (isset($_GET['uc']) && $_GET['uc'] === 'rapportVisite') ? ' active' : '';
+    echo '<li class="nav-item">
+            <a class="nav-link btn-outline-info rounded-pill px-3 fw-bold'.$active.'" 
+               href="index.php?uc=rapportVisite&action=saisir">
+               Rapports de visite
+            </a>
+          </li>';
+}
+?>
                     </ul>
                 </div>
             </div>
