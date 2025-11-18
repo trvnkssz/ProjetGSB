@@ -55,6 +55,8 @@ function insertRapportVisite($idVisiteur, $idPraticien, $dateVisite, $motif, $bi
     $req->bindValue(':bilan', $bilan);
     $req->bindValue(':etat', $etat);
     $req->execute();
+
+    return $nextNum;
 }
 
 function updateRapportVisite($idVisiteur, $numRapport, $idPraticien, $dateVisite, $motif, $bilan, $etat)

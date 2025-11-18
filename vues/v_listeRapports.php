@@ -2,6 +2,10 @@
     <div class="container">
         <h2 class="mb-4 text-center">Mes rapports de visite</h2>
 
+        <?php if (!empty($erreur)) : ?>
+            <div class="alert alert-danger text-center"><?= htmlspecialchars($erreur) ?></div>
+        <?php endif; ?>
+
         <?php if (empty($rapports)) : ?>
             <div class="alert alert-info text-center">Aucun rapport trouvé.</div>
         <?php else : ?>
